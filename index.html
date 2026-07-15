@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Furkan & Zerrin ❤️</title>
+
+    <!-- Google Fonts (zarif romantik yazı tipleri) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+
+    <!-- Ana stiller -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- ======== ARKA PLAN YILDIZ KANVASI ======== -->
+    <canvas id="starfield"></canvas>
+
+    <!-- ======== ÖN PLAN EFEKT KANVASI (kalpler, yapraklar, kalp oluşumu) ======== -->
+    <canvas id="fx-canvas"></canvas>
+
+    <!-- ======== ANA UYGULAMA ======== -->
+    <div id="app">
+
+        <!-- ===== BÖLÜM 0: GİRİŞ ===== -->
+        <section id="intro" class="section active">
+            <div class="glass-overlay">
+                <div class="intro-content">
+                    <h1 class="title-romantic">Aşkım Zerrin <span class="heart-icon">❤️</span></h1>
+                    <p class="subtitle">Lütfen bana sadece 2 dakikanı verir misin?</p>
+                    <button id="btn-start" class="btn-glow">Başla</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== BÖLÜM 1: HİKÂYE ===== -->
+        <section id="story" class="section">
+            <div class="glass-overlay">
+                <div class="story-container">
+                    <div id="story-text" class="story-text"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== BÖLÜM 2: ZARF ===== -->
+        <section id="envelope" class="section">
+            <div class="glass-overlay">
+                <div class="envelope-wrapper">
+                    <div class="envelope-container" id="envelope-container">
+                        <!-- Zarf -->
+                        <div class="envelope" id="envelope">
+                            <div class="envelope-front">
+                                <div class="envelope-flap"></div>
+                                <div class="envelope-body">
+                                    <span class="envelope-label">Aşkım Zerrin'e ❤️</span>
+                                </div>
+                            </div>
+                            <div class="envelope-back"></div>
+                            <!-- Mektup -->
+                            <div class="letter" id="letter">
+                                <div class="letter-content">
+                                    <p class="letter-greeting">Aşkım...</p>
+                                    <p>Dün gece arkadaşlarıma uydum.</p>
+                                    <p>Bunu seni çok üzdüğünün ve meraklandığının farkındayım.</p>
+                                    <p>O an bunun seni bu kadar kıracağını düşünemedim.</p>
+                                    <p>Bahane üretmeyeceğim.</p>
+                                    <p>Çünkü ne söylersem söyleyeyim seni üzdüğüm gerçeği değişmeyecek.</p>
+                                    <p>Sadece seni ne kadar önemsediğimi göstermek istiyorum.</p>
+                                    <p>Mesafeler yüzünden sana sarılamıyorum...</p>
+                                    <p>Ama bilmeni isterim ki seni gerçekten çok seviyorum.</p>
+                                    <p>Beni bugün affetmek zorunda değilsin.</p>
+                                    <p>Ama bana bunu telafi etme şansı verirsen...</p>
+                                    <p>Pişman etmeyeceğim.</p>
+                                    <p class="letter-signature">
+                                        ❤️<br />
+                                        Seni çok seven<br />
+                                        <strong>Furkan</strong>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="envelope-hint" id="envelope-hint">✉️ Mektubu açmak için tıkla</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== BÖLÜM 3: UZAK MESAFE ===== -->
+        <section id="long-distance" class="section">
+            <div class="glass-overlay">
+                <div class="ld-container">
+                    <div class="ld-stars">
+                        <div class="ld-star left">
+                            <span class="ld-star-label">Furkan</span>
+                            <div class="ld-star-glow"></div>
+                        </div>
+                        <div class="ld-star right">
+                            <span class="ld-star-label">Zerrin</span>
+                            <div class="ld-star-glow"></div>
+                        </div>
+                        <svg class="ld-connection" viewBox="0 0 200 100">
+                            <line x1="20" y1="50" x2="180" y2="50" stroke="url(#ld-grad)" stroke-width="2" stroke-dasharray="8 6" />
+                            <defs>
+                                <linearGradient id="ld-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#ff6b9d" stop-opacity="0.6" />
+                                    <stop offset="50%" stop-color="#ffd700" stop-opacity="1" />
+                                    <stop offset="100%" stop-color="#ff6b9d" stop-opacity="0.6" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="ld-text">
+                        <p>Belki kilometrelerce uzağız...</p>
+                        <p>Ama aynı gökyüzüne bakıyoruz.</p>
+                        <p>Ve ben her gece yıldızlara baktığımda seni düşünüyorum.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== BÖLÜM 4: FİNAL ===== -->
+        <section id="final" class="section">
+            <div class="glass-overlay">
+                <div class="final-container">
+                    <!-- Kalp oluşumu fx-canvas üzerinde çizilecek -->
+                    <div class="final-text" id="final-text">
+                        <h2 class="final-title">Seni Her Şeyden Çok Seviyorum ❤️</h2>
+                        <p class="final-p">Beni bugün affetmek zorunda değilsin.</p>
+                        <p class="final-p">Ama bana bunu telafi etme şansı verirsen...</p>
+                        <p class="final-p final-em">Pişman etmeyeceğim.</p>
+                        <p class="final-signature">❤️ Furkan ❤️</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
